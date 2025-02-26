@@ -1,0 +1,60 @@
+{
+   "Name":"eeg_pre_process",
+   "Extension":".json",
+   "Processes":[
+      {
+         "Name":"process_notch",
+         "Parameters": {
+            "sensortypes": "EEG",
+            "freqlist": [
+              60,
+              120,
+              180
+            ],
+            "cutoffW": 1,
+            "useold": 0,
+            "display": []
+          }
+      },
+      {
+         "Name": "process_bandpass",
+         "Parameters": {
+            "sensortypes": "EEG",
+            "label1": [],
+            "highpass": 0.5,
+            "lowpass": 80,
+            "tranband": 0,
+            "attenuation": "strict",
+            "ver": "2019",
+            "mirror": 0,
+            "display": []
+          }
+      },
+      {
+         "Name": "process_eegref",
+          "Parameters": {
+            "title": [],
+            "eegref": "AVERAGE",
+            "sensortypes": "EEG"
+          }
+      },
+      {
+         "Name":"process_psd",
+         "Parameters":{
+            "timewindow":[],
+            "win_length":10,
+            "win_overlap":50,
+            "sensortypes":"EEG",
+            "edit":{
+               "Comment":"Power", 
+               "TimeBands":[],
+               "Freqs":[],
+               "ClusterFuncTime":"none",
+               "Measure":"power",
+               "Output":"all",
+               "SaveKernel":0
+            }
+         }
+      }
+   ]
+}
