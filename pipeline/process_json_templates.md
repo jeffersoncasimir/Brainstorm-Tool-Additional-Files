@@ -1,5 +1,5 @@
 # JSON Templates
-Here is the json template for every processes.
+Here is the json template for every process.
 
 ```json
 
@@ -13,8 +13,9 @@ Here is the json template for every processes.
   "Name": "process_add_tag",
   "Parameters": {
     "tag": "",
-    "output": 1,
-    "label_warning": []
+    "output": "name",
+    "label_warning": [],
+    "label_warning2": []
   }
 }
 {
@@ -35,6 +36,53 @@ Here is the json template for every processes.
     "baseline": [],
     "order": 5,
     "sensortypes": "MEG, EEG"
+  }
+}
+{
+  "Name": "process_average",
+  "Parameters": {
+    "label1": [],
+    "avgtype": 1,
+    "label2": [],
+    "avg_func": 1,
+    "weighted": 0,
+    "weightedlabel": [],
+    "keepevents": 0,
+    "scalenormalized": 0,
+    "matchrows": 1,
+    "iszerobad": 1
+  }
+}
+{
+  "Name": "process_average_ab",
+  "Parameters": {
+    "weighted": 0,
+    "weightedlabel": [],
+    "scalenormalized": 0
+  }
+}
+{
+  "Name": "process_average_freq",
+  "Parameters": {
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_average_rows",
+  "Parameters": {
+    "label1": [],
+    "avgtype": 1,
+    "label2": [],
+    "avgfunc": 1,
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_average_time",
+  "Parameters": {
+    "timewindow": [],
+    "label2": [],
+    "avg_func": "mean"
   }
 }
 {
@@ -67,6 +115,27 @@ Here is the json template for every processes.
     "baseline": [],
     "sensortypes": "MEG, EEG",
     "method": "bl"
+  }
+}
+{
+  "Name": "process_baseline_norm",
+  "Parameters": {
+    "label1": [],
+    "baseline": [],
+    "sensortypes": "MEG, EEG",
+    "source_abs": 0,
+    "method": "zscore",
+    "label3": []
+  }
+}
+{
+  "Name": "process_baseline_norm2",
+  "Parameters": {
+    "label1": [],
+    "baseline": [],
+    "source_abs": 0,
+    "method": "zscore",
+    "label3": []
   }
 }
 {
@@ -131,9 +200,15 @@ Here is the json template for every processes.
     "vox2ras": 1,
     "mrifile": [
       "",
-      "BST"
+      ""
     ],
     "fiducials": []
+  }
+}
+{
+  "Name": "process_channel_biosemi",
+  "Parameters": {
+    "title": []
   }
 }
 {
@@ -162,7 +237,137 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_cohere1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "mscohere",
+    "label2": [],
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_cohere1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "mscohere",
+    "label2": [],
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_cohere2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "mscohere",
+    "label2": [],
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_combine_recordings",
+  "Parameters": {
+    "condition": "Combined"
+  }
+}
+{
+  "Name": "process_compress_sym",
+  "Parameters": {
+    "method": 1,
+    "overwrite": 0
+  }
+}
+{
   "Name": "process_concat",
+  "Parameters": {
+    "label1": []
+  }
+}
+{
+  "Name": "process_concat_rows",
   "Parameters": {
     "label1": []
   }
@@ -185,6 +390,102 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_corr1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "timeres": "none",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "scalarprod": 0,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_corr1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "timeres": "none",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "scalarprod": 0,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_corr2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "timeres": "none",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "scalarprod": 0,
+    "outputmode": "input"
+  }
+}
+{
   "Name": "process_ctf_convert",
   "Parameters": {
     "rectype": 2
@@ -204,9 +505,86 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_decoding_maxcorr",
+  "Parameters": {
+    "description": [],
+    "sensortypes": "MEG",
+    "lowpass": 30,
+    "num_permutations": 50,
+    "kfold": 5,
+    "method": 1,
+    "model": "maxcorr"
+  }
+}
+{
+  "Name": "process_decoding_svm",
+  "Parameters": {
+    "description": [],
+    "sensortypes": "MEG",
+    "ignorebad": 0,
+    "lowpass": 30,
+    "num_permutations": 50,
+    "kfold": 5,
+    "method": 1,
+    "model": "svm"
+  }
+}
+{
   "Name": "process_delete",
   "Parameters": {
     "target": 1
+  }
+}
+{
+  "Name": "process_detectbad",
+  "Parameters": {
+    "warning": [],
+    "timewindow": [],
+    "sep1": [],
+    "meggrad": [
+      0,
+      0
+    ],
+    "megmag": [
+      0,
+      0
+    ],
+    "eeg": [
+      0,
+      0
+    ],
+    "ieeg": [
+      0,
+      0
+    ],
+    "eog": [
+      0,
+      0
+    ],
+    "ecg": [
+      0,
+      0
+    ],
+    "comment1": [],
+    "sep2": [],
+    "win_length": 1,
+    "rejectmode": 2
+  }
+}
+{
+  "Name": "process_detectbad_mad",
+  "Parameters": {
+    "info": [],
+    "timewindow": [],
+    "win_length": 1,
+    "warning_raw": [],
+    "sep1": [],
+    "threshold_method": "auto",
+    "n_mad": 3,
+    "threshold_p2p": 0,
+    "threshold_grad": 0,
+    "sep2": [],
+    "abs_gradient": 1
   }
 }
 {
@@ -217,10 +595,58 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_diff_ab",
+  "Parameters": {}
+}
+{
+  "Name": "process_diff_mean",
+  "Parameters": {
+    "labelavg": [],
+    "avg_func": 2,
+    "weighted": 0,
+    "weightedlabel": [],
+    "matchrows": 1,
+    "iszerobad": 1,
+    "label_norm": []
+  }
+}
+{
+  "Name": "process_diff_norm",
+  "Parameters": {}
+}
+{
+  "Name": "process_dipole_scanning",
+  "Parameters": {
+    "timewindow": [],
+    "sep2": [],
+    "scouts": []
+  }
+}
+{
   "Name": "process_duplicate",
   "Parameters": {
     "target": 1,
     "tag": "_copy"
+  }
+}
+{
+  "Name": "process_dwi2dti",
+  "Parameters": {
+    "doc": [],
+    "subjectname": "NewSubject",
+    "dwifile": [
+      "",
+      ""
+    ],
+    "bvalfile": [
+      "",
+      ""
+    ],
+    "bvecfile": [
+      "",
+      ""
+    ],
+    "note": []
   }
 }
 {
@@ -237,6 +663,19 @@ Here is the json template for every processes.
     "title": [],
     "eegref": "",
     "sensortypes": "EEG"
+  }
+}
+{
+  "Name": "process_epileptogenicity",
+  "Parameters": {
+    "help": [],
+    "sensortypes": "SEEG",
+    "freqband": [],
+    "latency": "0:2:20",
+    "timeconstant": 3,
+    "timeresolution": 0.2,
+    "thdelay": 0.05,
+    "type": "volume"
   }
 }
 {
@@ -423,7 +862,9 @@ Here is the json template for every processes.
   "Name": "process_evt_read",
   "Parameters": {
     "stimchan": "",
-    "trackmode": 1,
+    "trackmode": "value",
+    "maskcheck": 0,
+    "mask": "0",
     "zero": 0,
     "min_duration": 0
   }
@@ -449,7 +890,7 @@ Here is the json template for every processes.
   "Name": "process_evt_simple",
   "Parameters": {
     "eventname": "",
-    "method": 1
+    "method": "start"
   }
 }
 {
@@ -460,7 +901,7 @@ Here is the json template for every processes.
     "offset": 0,
     "evtfile": [
       "",
-      "ARRAY-TIMES"
+      ""
     ],
     "suffix": "",
     "comment1": []
@@ -479,7 +920,7 @@ Here is the json template for every processes.
   "Parameters": {
     "bidsdir": [
       "",
-      "BIDS"
+      ""
     ],
     "subscheme": 2,
     "sesscheme": 1,
@@ -495,11 +936,219 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_export_file",
+  "Parameters": {
+    "label1": [],
+    "exportraw": [
+      "",
+      ""
+    ],
+    "exportdata": [
+      "",
+      ""
+    ],
+    "exportresults": [
+      "",
+      ""
+    ],
+    "exporttimefreq": [
+      "",
+      ""
+    ],
+    "exportmatrix": [
+      "",
+      ""
+    ]
+  }
+}
+{
+  "Name": "process_export_spmsurf",
+  "Parameters": {
+    "outputdir": [
+      "",
+      ""
+    ],
+    "filetag": "",
+    "timewindow": [],
+    "labelfreq": [],
+    "freq_export": [],
+    "isabs": 1
+  }
+}
+{
+  "Name": "process_export_spmvol",
+  "Parameters": {
+    "outputdir": [
+      "",
+      ""
+    ],
+    "filetag": "",
+    "isconcat": 1,
+    "labeltime": [],
+    "timewindow": [],
+    "timedownsample": 3,
+    "timemethod": 1,
+    "labelfreq": [],
+    "freq_export": [],
+    "labelvol": [],
+    "voldownsample": 2,
+    "isabs": 1,
+    "iscut": 0
+  }
+}
+{
   "Name": "process_extract_cluster",
   "Parameters": {
     "timewindow": [],
     "clusters": [],
-    "concatenate": 1
+    "concatenate": 1,
+    "save": []
+  }
+}
+{
+  "Name": "process_extract_fooof",
+  "Parameters": {
+    "label1": [],
+    "fooof": 1
+  }
+}
+{
+  "Name": "process_extract_headdist",
+  "Parameters": {
+    "warning": []
+  }
+}
+{
+  "Name": "process_extract_max",
+  "Parameters": {
+    "timewindow": [],
+    "sensortypes": "MEG, EEG",
+    "labelmethod": [],
+    "method": "absmax",
+    "labelout": [],
+    "output": "amplitude"
+  }
+}
+{
+  "Name": "process_extract_maxfreq",
+  "Parameters": {
+    "freqrange": [],
+    "labelmethod": [],
+    "method": "absmax",
+    "labelout": [],
+    "output": "amplitude",
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_extract_pthresh",
+  "Parameters": {
+    "pthresh": 0.05,
+    "durthresh": 0,
+    "label1": [],
+    "correction": 1,
+    "label2": [],
+    "control1": 1,
+    "control2": 1,
+    "control3": 1
+  }
+}
+{
+  "Name": "process_extract_pthresh2",
+  "Parameters": {
+    "pthresh": 0.05,
+    "durthresh": 0,
+    "label1": [],
+    "correction": 1,
+    "label2": [],
+    "control1": 1,
+    "control2": 1,
+    "control3": 1
+  }
+}
+{
+  "Name": "process_extract_scout",
+  "Parameters": {
+    "timewindow": [],
+    "scouts": [],
+    "flatten": 1,
+    "scoutfunc": "pca",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "isflip": 1,
+    "isnorm": 0,
+    "concatenate": 1,
+    "save": [],
+    "addrowcomment": [],
+    "addfilecomment": []
+  }
+}
+{
+  "Name": "process_extract_time",
+  "Parameters": {
+    "timewindow": []
+  }
+}
+{
+  "Name": "process_extract_values",
+  "Parameters": {
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "dim": 2,
+    "Comment": ""
+  }
+}
+{
+  "Name": "process_fem_mesh",
+  "Parameters": {
+    "subjectname": "",
+    "method": "iso2mesh",
+    "opt1": [],
+    "mergemethod": "mergemesh",
+    "maxvol": 0.1,
+    "keepratio": 100,
+    "opt2": [],
+    "vertexdensity": 0.5,
+    "nvertices": 15000,
+    "iseegcaps": 0,
+    "opt3": [],
+    "downsample": 3,
+    "nodeshift": 0.3,
+    "opt0": [],
+    "zneck": -115,
+    "opt4": [],
+    "zefMeshResolution": 3,
+    "zefUseGPU": 0,
+    "zefAdvancedInterface": 0
+  }
+}
+{
+  "Name": "process_fem_tensors",
+  "Parameters": {
+    "subjectname": "",
+    "femcond": {
+      "FemCond": []
+    }
   }
 }
 {
@@ -523,6 +1172,88 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_fooof",
+  "Parameters": {
+    "implementation": "matlab",
+    "freqrange": [],
+    "powerline": "None",
+    "method": "leastsquare",
+    "peakwidth": [],
+    "maxpeaks": 3,
+    "minpeakheight": 3,
+    "proxthresh": 2,
+    "apermode": "fixed",
+    "guessweight": "none",
+    "sorttype": "param",
+    "sortparam": "frequency",
+    "sortbands": []
+  }
+}
+{
+  "Name": "process_ft_channelrepair",
+  "Parameters": {
+    "warning": [],
+    "method": 1,
+    "maxdist": 4,
+    "sensortypes": "EEG"
+  }
+}
+{
+  "Name": "process_ft_dipolefitting",
+  "Parameters": {
+    "label1": [],
+    "timewindow": [],
+    "sensortypes": "MEG",
+    "label2": [],
+    "dipolemodel": 1,
+    "numdipoles": 1,
+    "volumegrid": [],
+    "symmetry": 0,
+    "label3": [],
+    "filetag": ""
+  }
+}
+{
+  "Name": "process_ft_freqstatistics",
+  "Parameters": {
+    "label1": [],
+    "sensortypes": "EEG",
+    "timewindow": [],
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgchan": 0,
+    "avgfreq": 0,
+    "label_norm": [],
+    "label2": [],
+    "randomizations": 1000,
+    "statistictype": 1,
+    "tail": "two",
+    "label3": [],
+    "correctiontype": 2,
+    "minnbchan": 0,
+    "clusteralpha": 0.05
+  }
+}
+{
+  "Name": "process_ft_mtmconvol",
+  "Parameters": {
+    "timewindow": [],
+    "sensortypes": "MEG, EEG",
+    "clusters": [],
+    "scoutfunc": 1,
+    "mt_taper": "dpss",
+    "mt_frequencies": "1:2:120",
+    "mt_freqmod": 10,
+    "mt_timeres": 1,
+    "mt_timestep": 0.1,
+    "mt_label": [],
+    "measure": "power",
+    "avgoutput": 1
+  }
+}
+{
   "Name": "process_ft_prepare_leadfield",
   "Parameters": {
     "label1": [],
@@ -534,6 +1265,244 @@ Here is the json template for every processes.
     "meg": "singleshell",
     "eeg": "concentricspheres",
     "verbose": 0
+  }
+}
+{
+  "Name": "process_ft_prepare_mesh_hexa",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "downsample": 3,
+    "nodeshift": 0.3
+  }
+}
+{
+  "Name": "process_ft_scalpcurrentdensity",
+  "Parameters": {
+    "method_label": [],
+    "method": 2,
+    "sensortypes": "EEG",
+    "param_label1": [],
+    "maxdist": 5,
+    "param_label2": [],
+    "lambda": 1E-5,
+    "order": 4,
+    "degree": 20,
+    "label": []
+  }
+}
+{
+  "Name": "process_ft_sourceanalysis",
+  "Parameters": {
+    "label1": [],
+    "method": "mne",
+    "sensortype": "MEG"
+  }
+}
+{
+  "Name": "process_ft_sourceanalysis_dics",
+  "Parameters": {
+    "sensortype": "MEG",
+    "label1": [],
+    "poststim": [],
+    "baseline": [],
+    "label2": [],
+    "foi": 18,
+    "tpr": 4,
+    "label4": [],
+    "method": "subtraction",
+    "erds": "erd",
+    "effect": "abs",
+    "label3": [],
+    "maxfreq": 40,
+    "showtfr": 1
+  }
+}
+{
+  "Name": "process_ft_sourcestatistics",
+  "Parameters": {
+    "label1": [],
+    "sensortypes": "EEG",
+    "timewindow": [],
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgfreq": 0,
+    "label_norm": [],
+    "label2": [],
+    "randomizations": 1000,
+    "statistictype": 1,
+    "tail": "two",
+    "label3": [],
+    "correctiontype": 2,
+    "minnbchan": 0,
+    "clusteralpha": 0.05
+  }
+}
+{
+  "Name": "process_ft_timelockstatistics",
+  "Parameters": {
+    "label1": [],
+    "sensortypes": "EEG",
+    "timewindow": [],
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgchan": 0,
+    "avgfreq": 0,
+    "label_norm": [],
+    "label2": [],
+    "randomizations": 1000,
+    "statistictype": 1,
+    "tail": "two",
+    "label3": [],
+    "correctiontype": 2,
+    "minnbchan": 0,
+    "clusteralpha": 0.05
+  }
+}
+{
+  "Name": "process_ft_volumesegment",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "label1": [],
+    "iswhite": 0,
+    "isgray": 0,
+    "iscsf": 1,
+    "isskull": 1,
+    "isscalp": 1,
+    "label2": [],
+    "istess": 1,
+    "nvertwhite": 15000,
+    "nvertgray": 15000,
+    "nvertcsf": 1922,
+    "nvertskull": 1922,
+    "nvertscalp": 1922
+  }
+}
+{
+  "Name": "process_generate_bem",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "label1": [],
+    "nscalp": 1922,
+    "nouter": 1922,
+    "ninner": 1922,
+    "thickness": 4,
+    "method": "brainstorm"
+  }
+}
+{
+  "Name": "process_generate_canonical",
+  "Parameters": {
+    "subjectname": "",
+    "resolution": 3
+  }
+}
+{
+  "Name": "process_generate_head",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "nvertices": 10000,
+    "erodefactor": 0,
+    "fillfactor": 2
+  }
+}
+{
+  "Name": "process_gradnorm",
+  "Parameters": {}
+}
+{
+  "Name": "process_granger1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "dirlabel": [],
+    "direction": 3,
+    "grangerorder": 10,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_granger1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "grangerorder": 10,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_granger2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "removeevoked": 0,
+    "grangerorder": 10,
+    "outputmode": 1
   }
 }
 {
@@ -620,6 +1589,14 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_headmodel_exclusionzone",
+  "Parameters": {
+    "usage": [],
+    "modality": "SEEG",
+    "exclusionradius": 3
+  }
+}
+{
   "Name": "process_headpoints_add",
   "Parameters": {
     "channelfile": [
@@ -642,6 +1619,129 @@ Here is the json template for every processes.
   "Parameters": {
     "title": [],
     "zlimit": 0
+  }
+}
+{
+  "Name": "process_henv1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "penv",
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "windowed",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "parallel": 0,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_henv1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "penv",
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "windowed",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "parallel": 0,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_henv2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "removeevoked": 0,
+    "label1": [],
+    "cohmeasure": "penv",
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "windowed",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "parallel": 0,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_hilbert",
+  "Parameters": {
+    "sensortypes": "MEG, EEG",
+    "clusters": [],
+    "scoutfunc": 1,
+    "edit": [],
+    "normalize2020": 0,
+    "normalize": "none",
+    "mirror": 0
   }
 }
 {
@@ -696,13 +1796,70 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_import_anatomy",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "mrifile": [
+      "",
+      ""
+    ],
+    "nvertices": 15000,
+    "label1": [],
+    "nas": [
+      0,
+      0,
+      0
+    ],
+    "lpa": [
+      0,
+      0,
+      0
+    ],
+    "rpa": [
+      0,
+      0,
+      0
+    ],
+    "ac": [
+      0,
+      0,
+      0
+    ],
+    "pc": [
+      0,
+      0,
+      0
+    ],
+    "ih": [
+      0,
+      0,
+      0
+    ]
+  }
+}
+{
+  "Name": "process_import_bids",
+  "Parameters": {
+    "bidsdir": [
+      "",
+      ""
+    ],
+    "selectsubj": "",
+    "nvertices": 15000,
+    "mni": "maff8",
+    "anatregister": "spm12",
+    "groupsessions": 1,
+    "channelalign": 1
+  }
+}
+{
   "Name": "process_import_channel",
   "Parameters": {
     "channelfile": [
       "",
       ""
     ],
-    "usedefault": 1,
+    "usedefault": "",
     "separator": [],
     "channelalign": 1,
     "fixunits": 1,
@@ -763,6 +1920,20 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_import_data_raw",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "datafile": [
+      "",
+      ""
+    ],
+    "separator": [],
+    "channelreplace": 1,
+    "channelalign": 1,
+    "evtmode": "value"
+  }
+}
+{
   "Name": "process_import_data_time",
   "Parameters": {
     "subjectname": "NewSubject",
@@ -783,6 +1954,76 @@ Here is the json template for every processes.
     "freq": [],
     "baseline": [],
     "blsensortypes": "MEG, EEG"
+  }
+}
+{
+  "Name": "process_import_mri",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "mrifile": [
+      "",
+      ""
+    ],
+    "label1": [],
+    "nas": [
+      0,
+      0,
+      0
+    ],
+    "lpa": [
+      0,
+      0,
+      0
+    ],
+    "rpa": [
+      0,
+      0,
+      0
+    ],
+    "ac": [
+      0,
+      0,
+      0
+    ],
+    "pc": [
+      0,
+      0,
+      0
+    ],
+    "ih": [
+      0,
+      0,
+      0
+    ]
+  }
+}
+{
+  "Name": "process_import_surfaces",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "headfile": [
+      "",
+      ""
+    ],
+    "cortexfile1": [
+      "",
+      ""
+    ],
+    "cortexfile2": [
+      "",
+      ""
+    ],
+    "innerfile": [
+      "",
+      ""
+    ],
+    "outerfile": [
+      "",
+      ""
+    ],
+    "nverthead": 7000,
+    "nvertcortex": 15000,
+    "nvertskull": 7000
   }
 }
 {
@@ -872,6 +2113,103 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_inverse_mem",
+  "Parameters": {
+    "comment": "",
+    "mem": {
+      "mandatory": {
+        "pipeline": "",
+        "DataTypes": [
+          "MEG"
+        ],
+        "ChannelTypes": [],
+        "DataTime": [],
+        "Data": []
+      },
+      "optional": {
+        "verbose": 1,
+        "display": 0,
+        "iData": [],
+        "Baseline": [],
+        "BaselineTime": [],
+        "BaselineChannels": [],
+        "BaselineHistory": [],
+        "EmptyRoom_data": [],
+        "EmptyRoom_channels": [],
+        "TimeSegment": [
+          -9999,
+          9999
+        ],
+        "BaselineSegment": [
+          -9999,
+          9999
+        ],
+        "groupAnalysis": 0,
+        "Channel": [],
+        "ChannelFlag": [],
+        "FileType": "",
+        "ChannelNames": "",
+        "ChannelFlags": "",
+        "waitbar": 0,
+        "DataFile": "",
+        "ResultFile": "",
+        "HeadModelFile": "",
+        "MSP_min_window": 11,
+        "clustering": {
+          "clusters": []
+        }
+      },
+      "automatic": {
+        "InverseMethod": "MEM (9.10.0.1649659 (R2021a) Update 1)",
+        "stand_alone": 0,
+        "process": 0,
+        "Units": {},
+        "MEMexpert": 0,
+        "GoodChannel": [],
+        "sampling_rate": 0,
+        "Modality": {},
+        "iData": [],
+        "final_alpha": [],
+        "entropy_drops": [],
+        "BaselineType": "data",
+        "iProtocol": [],
+        "iStudy": [],
+        "iItem": [],
+        "DataInfo": {},
+        "Comment": "",
+        "TFcomment": "Wavelet T-F plane - type 'be_vizr' to display",
+        "version": "unknown",
+        "last_update": "unknown"
+      },
+      "clustering": {
+        "MSP_R2_threshold": 0.95,
+        "neighborhood_order": 4,
+        "MSP_window": 10,
+        "clusters_type": "static",
+        "MSP_scores_threshold": 0
+      },
+      "model": {
+        "active_mean_method": 2,
+        "alpha_method": 3,
+        "alpha_threshold": 0,
+        "initial_lambda": 1
+      },
+      "solver": {
+        "NoiseCov": [],
+        "NoiseCov_method": 2,
+        "NoiseCov_recompute": 1,
+        "spatial_smoothing": 0.6,
+        "active_var_mult": 0.05,
+        "inactive_var_mult": 0,
+        "Optim_method": "fminunc",
+        "covariance_scale": 1,
+        "parallel_matlab": false
+      }
+    },
+    "sensortypes": "MEG, MEG MAG, MEG GRAD, EEG"
+  }
+}
+{
   "Name": "process_matlab_eval",
   "Parameters": {
     "matlab": "% Available variables: Data, TimeVector\n\nData = Data;\n",
@@ -897,30 +2235,13 @@ Here is the json template for every processes.
   }
 }
 {
-  "Name": "process_mne_maxwell",
+  "Name": "process_mia_export_db",
   "Parameters": {
-    "help": [],
-    "int_order": 8,
-    "ext_order": 3,
-    "origin": "auto",
-    "coord_frame": "head",
-    "destination": [],
-    "regularize": 1,
-    "ignore_ref": 0,
-    "st_duration": 0,
-    "st_correlation": 0.98,
-    "st_fixed": 1,
-    "st_only": 0,
-    "mag_scale": 100,
-    "skip_by_annotation": "edge, bad_acq_skip",
-    "calibration": [
+    "mia_db": [
       "",
-      "calibration"
+      ""
     ],
-    "ctc": [
-      "",
-      "ctc"
-    ]
+    "sensortypes": "SEEG"
   }
 }
 {
@@ -942,12 +2263,27 @@ Here is the json template for every processes.
     "skip_by_annotation": "edge, bad_acq_skip",
     "calibration": [
       "",
-      "calibration"
+      ""
     ],
     "ctc": [
       "",
-      "ctc"
+      ""
     ]
+  }
+}
+{
+  "Name": "process_mni_normalize",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "method": "maff8",
+    "uset2": 0
+  }
+}
+{
+  "Name": "process_montage_apply",
+  "Parameters": {
+    "montage": [],
+    "createchan": 1
   }
 }
 {
@@ -955,6 +2291,42 @@ Here is the json template for every processes.
   "Parameters": {
     "subjectname": "NewSubject",
     "folder": "NewFolder"
+  }
+}
+{
+  "Name": "process_mri_deface",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "method_title": [],
+    "method": "spm",
+    "mniplane": [
+      0,
+      -11,
+      9.6,
+      1
+    ],
+    "mniplanedef": [],
+    "defacehead": 1,
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_mtrf_train",
+  "Parameters": {
+    "sensortypes": "MEG, EEG",
+    "labelevt": [],
+    "eventname": "",
+    "tmin": -100,
+    "tmax": 100
+  }
+}
+{
+  "Name": "process_noise_correlation",
+  "Parameters": {
+    "timewindow": [
+      0,
+      0.2
+    ]
   }
 }
 {
@@ -982,6 +2354,659 @@ Here is the json template for every processes.
     "cutoffW": 1,
     "useold": 0,
     "display": []
+  }
+}
+{
+  "Name": "process_nst_OM",
+  "Parameters": {
+    "subjectname": "",
+    "fluencesCond": []
+  }
+}
+{
+  "Name": "process_nst_cmem",
+  "Parameters": {
+    "mem": {
+      "mandatory": {
+        "pipeline": "",
+        "DataTypes": [
+          "MEG"
+        ],
+        "ChannelTypes": [],
+        "DataTime": [],
+        "Data": []
+      },
+      "optional": {
+        "verbose": 1,
+        "display": 0,
+        "iData": [],
+        "Baseline": [],
+        "BaselineTime": [],
+        "BaselineChannels": [],
+        "BaselineHistory": [],
+        "EmptyRoom_data": [],
+        "EmptyRoom_channels": [],
+        "TimeSegment": [
+          -9999,
+          9999
+        ],
+        "BaselineSegment": [
+          -9999,
+          9999
+        ],
+        "groupAnalysis": 0,
+        "Channel": [],
+        "ChannelFlag": [],
+        "FileType": "",
+        "ChannelNames": "",
+        "ChannelFlags": "",
+        "waitbar": 0,
+        "DataFile": "",
+        "ResultFile": "",
+        "HeadModelFile": "",
+        "MSP_min_window": 11,
+        "clustering": {
+          "clusters": []
+        }
+      },
+      "automatic": {
+        "InverseMethod": "MEM (9.10.0.1649659 (R2021a) Update 1)",
+        "stand_alone": 0,
+        "process": 0,
+        "Units": {},
+        "MEMexpert": 0,
+        "GoodChannel": [],
+        "sampling_rate": 0,
+        "Modality": {},
+        "iData": [],
+        "final_alpha": [],
+        "entropy_drops": [],
+        "BaselineType": "data",
+        "iProtocol": [],
+        "iStudy": [],
+        "iItem": [],
+        "DataInfo": {},
+        "Comment": "",
+        "TFcomment": "Wavelet T-F plane - type 'be_vizr' to display",
+        "version": "unknown",
+        "last_update": "unknown"
+      },
+      "clustering": {
+        "MSP_R2_threshold": 0.95,
+        "neighborhood_order": 4,
+        "MSP_window": 10,
+        "clusters_type": "static",
+        "MSP_scores_threshold": 0
+      },
+      "model": {
+        "active_mean_method": 2,
+        "alpha_method": 3,
+        "alpha_threshold": 0,
+        "initial_lambda": 1
+      },
+      "solver": {
+        "NoiseCov": [],
+        "NoiseCov_method": 2,
+        "NoiseCov_recompute": 1,
+        "spatial_smoothing": 0.6,
+        "active_var_mult": 0.05,
+        "inactive_var_mult": 0,
+        "Optim_method": "fminunc",
+        "covariance_scale": 1,
+        "parallel_matlab": false
+      }
+    },
+    "thresh_dis2cortex": 3,
+    "depth_weightingMNE": 0.5,
+    "depth_weightingMEM": 0.3,
+    "auto_neighborhood_order": 1,
+    "store_sparse_results": 0
+  }
+}
+{
+  "Name": "process_nst_cmem_fusion",
+  "Parameters": {
+    "mem": {
+      "mandatory": {
+        "pipeline": "",
+        "DataTypes": [
+          "MEG"
+        ],
+        "ChannelTypes": [],
+        "DataTime": [],
+        "Data": []
+      },
+      "optional": {
+        "verbose": 1,
+        "display": 0,
+        "iData": [],
+        "Baseline": [],
+        "BaselineTime": [],
+        "BaselineChannels": [],
+        "BaselineHistory": [],
+        "EmptyRoom_data": [],
+        "EmptyRoom_channels": [],
+        "TimeSegment": [
+          -9999,
+          9999
+        ],
+        "BaselineSegment": [
+          -9999,
+          9999
+        ],
+        "groupAnalysis": 0,
+        "Channel": [],
+        "ChannelFlag": [],
+        "FileType": "",
+        "ChannelNames": "",
+        "ChannelFlags": "",
+        "waitbar": 0,
+        "DataFile": "",
+        "ResultFile": "",
+        "HeadModelFile": "",
+        "MSP_min_window": 11,
+        "clustering": {
+          "clusters": []
+        }
+      },
+      "automatic": {
+        "InverseMethod": "MEM (9.10.0.1649659 (R2021a) Update 1)",
+        "stand_alone": 0,
+        "process": 0,
+        "Units": {},
+        "MEMexpert": 0,
+        "GoodChannel": [],
+        "sampling_rate": 0,
+        "Modality": {},
+        "iData": [],
+        "final_alpha": [],
+        "entropy_drops": [],
+        "BaselineType": "data",
+        "iProtocol": [],
+        "iStudy": [],
+        "iItem": [],
+        "DataInfo": {},
+        "Comment": "",
+        "TFcomment": "Wavelet T-F plane - type 'be_vizr' to display",
+        "version": "unknown",
+        "last_update": "unknown"
+      },
+      "clustering": {
+        "MSP_R2_threshold": 0.95,
+        "neighborhood_order": 4,
+        "MSP_window": 10,
+        "clusters_type": "static",
+        "MSP_scores_threshold": 0
+      },
+      "model": {
+        "active_mean_method": 2,
+        "alpha_method": 3,
+        "alpha_threshold": 0,
+        "initial_lambda": 1
+      },
+      "solver": {
+        "NoiseCov": [],
+        "NoiseCov_method": 2,
+        "NoiseCov_recompute": 1,
+        "spatial_smoothing": 0.6,
+        "active_var_mult": 0.05,
+        "inactive_var_mult": 0,
+        "Optim_method": "fminunc",
+        "covariance_scale": 1,
+        "parallel_matlab": false
+      }
+    },
+    "thresh_dis2cortex": 3,
+    "depth_weightingMNE": 0.5,
+    "depth_weightingMEM": 0.3,
+    "auto_neighborhood_order": 1,
+    "store_sparse_results": 0
+  }
+}
+{
+  "Name": "process_nst_combine_masks",
+  "Parameters": {
+    "operation": 1
+  }
+}
+{
+  "Name": "process_nst_compute_voronoi",
+  "Parameters": {
+    "subjectname": "",
+    "segmentation_label": 1
+  }
+}
+{
+  "Name": "process_nst_concat_matrices",
+  "Parameters": {
+    "stacking_type": 2
+  }
+}
+{
+  "Name": "process_nst_convert_to_stat",
+  "Parameters": {
+    "comment": ""
+  }
+}
+{
+  "Name": "process_nst_cortical_projection",
+  "Parameters": {
+    "method": 1,
+    "min_separation_cm": -1,
+    "compute_hbt": 0,
+    "sparse_storage": 0,
+    "save_mixing_mat": 0
+  }
+}
+{
+  "Name": "process_nst_cpt_fluences",
+  "Parameters": {
+    "subjectname": "",
+    "fluencesCond": []
+  }
+}
+{
+  "Name": "process_nst_dOD",
+  "Parameters": {
+    "option_baseline_method": 1,
+    "timewindow": []
+  }
+}
+{
+  "Name": "process_nst_dOD_SSR",
+  "Parameters": {
+    "option_baseline_method": 1,
+    "option_do_SuperficalRegression": 0,
+    "option_Superfical_Channel": ""
+  }
+}
+{
+  "Name": "process_nst_deglitch",
+  "Parameters": {
+    "factor_std_grad": 2.5
+  }
+}
+{
+  "Name": "process_nst_detect_bad",
+  "Parameters": {
+    "text1": [],
+    "option_sci": 0,
+    "sci_threshold": 80,
+    "power_threshold": 10,
+    "option_coefficient_variation": 0,
+    "coefficient_variation": 10,
+    "option_remove_saturating": 0,
+    "option_max_sat_prop": 10,
+    "option_min_sat_prop": 10,
+    "text2": [],
+    "option_separation_filtering": 0,
+    "option_separation": [
+      0,
+      5
+    ],
+    "text3": [],
+    "auxilary_signal": 1,
+    "option_keep_unpaired": 0
+  }
+}
+{
+  "Name": "process_nst_detect_bad_CV",
+  "Parameters": {
+    "option_remove_negative": 1,
+    "option_invalidate_paired_channels": 1,
+    "option_max_sat_prop": 1,
+    "option_coefficient_variation": 1,
+    "coefficient_variation": 15
+  }
+}
+{
+  "Name": "process_nst_detrend",
+  "Parameters": {
+    "option_period": 200,
+    "option_keep_mean": 0
+  }
+}
+{
+  "Name": "process_nst_export_nirs",
+  "Parameters": {
+    "outputdir": [
+      "",
+      ""
+    ]
+  }
+}
+{
+  "Name": "process_nst_extract_fov_mask_cortical",
+  "Parameters": {
+    "save_surf_mask": 0,
+    "save_atlas": "",
+    "do_atlas_inter": 0,
+    "atlas": "",
+    "keep_full_atlas_rois": 0
+  }
+}
+{
+  "Name": "process_nst_extract_sensitivity_from_head_model",
+  "Parameters": {
+    "normalize": 0,
+    "normalize_type": 1
+  }
+}
+{
+  "Name": "process_nst_extract_ssc",
+  "Parameters": {
+    "separation_threshold_cm": 1.5
+  }
+}
+{
+  "Name": "process_nst_get_data_perform_2018",
+  "Parameters": {
+    "hint1": [],
+    "inputdir": [
+      "",
+      ""
+    ],
+    "bst_dir": "/home/corentin/.brainstorm",
+    "confirm_download": 0
+  }
+}
+{
+  "Name": "process_nst_glm_contrast",
+  "Parameters": {
+    "Contrast": ""
+  }
+}
+{
+  "Name": "process_nst_glm_contrast_mask",
+  "Parameters": {
+    "pthresh": 0.05,
+    "durthresh": 0,
+    "label1": [],
+    "correction": 1,
+    "label2": [],
+    "control1": 1,
+    "control2": 1,
+    "control3": 1,
+    "do_atlas_inter": 0,
+    "atlas": "",
+    "min_atlas_roi_size": 2
+  }
+}
+{
+  "Name": "process_nst_glm_contrast_ttest",
+  "Parameters": {
+    "tail": "one+"
+  }
+}
+{
+  "Name": "process_nst_glm_fit",
+  "Parameters": {
+    "label0": [],
+    "filter_model": 1,
+    "hpf_low_cutoff": 0.01,
+    "dct_cutoff": 200,
+    "trim_start": 0,
+    "label3": [],
+    "stim_events": "",
+    "hrf_model": 1,
+    "label4": [],
+    "lfO": 1,
+    "lfo_cutoff": 200,
+    "SS_chan": 0,
+    "SS_chan_distance": 1.5,
+    "SS_chan_name": "",
+    "label2": [],
+    "statistical_processing": 1,
+    "output_cmt": [],
+    "extra_output": 0,
+    "save_betas": 0,
+    "save_residuals": 0,
+    "save_fit": 0
+  }
+}
+{
+  "Name": "process_nst_glm_fit1",
+  "Parameters": {
+    "label0": [],
+    "filter_model": 1,
+    "hpf_low_cutoff": 0.01,
+    "dct_cutoff": 200,
+    "trim_start": 0,
+    "label3": [],
+    "stim_events": "",
+    "hrf_model": 1,
+    "label4": [],
+    "lfO": 1,
+    "lfo_cutoff": 200,
+    "SS_chan": 0,
+    "SS_chan_distance": 1.5,
+    "SS_chan_name": "",
+    "label2": [],
+    "statistical_processing": 1,
+    "output_cmt": [],
+    "extra_output": 0,
+    "save_betas": 0,
+    "save_residuals": 0,
+    "save_fit": 0
+  }
+}
+{
+  "Name": "process_nst_glm_group_subjs_zmat",
+  "Parameters": {
+    "keep_only_first_roi": 0,
+    "normalize_with_std": 1
+  }
+}
+{
+  "Name": "process_nst_glm_group_ttest",
+  "Parameters": {
+    "output_subject": "Group analysis",
+    "output_condition": "GLM",
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_nst_iir_filter",
+  "Parameters": {
+    "sensortypes": "NIRS",
+    "label1": [],
+    "option_filter_type": 1,
+    "option_keep_mean": 1,
+    "option_low_cutoff": 0.01,
+    "option_high_cutoff": 0.5,
+    "order": 3,
+    "display": []
+  }
+}
+{
+  "Name": "process_nst_import_csv_events",
+  "Parameters": {
+    "evtfile": [
+      "",
+      ""
+    ],
+    "label_cols": [],
+    "trial_label_column": "",
+    "trial_start_column": "",
+    "label_span_help": [],
+    "span_type": 1,
+    "trial_end_column": "",
+    "time_unit": 1,
+    "label_timing": [],
+    "time_origin_type": 1,
+    "time_origin_value_sec": 0,
+    "time_origin_offset_sec": 0,
+    "label_extra": [],
+    "label2": [],
+    "entry_filters": "",
+    "delimiter": ",",
+    "max_events": 1000,
+    "confirm_importation": 1
+  }
+}
+{
+  "Name": "process_nst_import_evt_events",
+  "Parameters": {
+    "evtfile": [
+      "",
+      ""
+    ],
+    "label_cols": "",
+    "last_event": 1,
+    "confirm_importation": 0,
+    "preview": []
+  }
+}
+{
+  "Name": "process_nst_import_head_model",
+  "Parameters": {
+    "data_source": "http://thomasvincent.xyz/nst_data/fluence/",
+    "use_closest_wl": 0,
+    "do_grey_mask": 1,
+    "smoothing_fwhm": 0,
+    "force_median_spread": 0,
+    "normalize_fluence": 1,
+    "sensitivity_threshold_pct": 0.5,
+    "use_all_pairs": 0,
+    "segmentation_label": 1,
+    "do_export_fluence_vol": 0,
+    "outputdir": ""
+  }
+}
+{
+  "Name": "process_nst_import_nirs_as_tstat",
+  "Parameters": {
+    "nirs_file": [
+      "",
+      ""
+    ],
+    "subjectname": "",
+    "condition": "nirs10"
+  }
+}
+{
+  "Name": "process_nst_mask_from_atlas",
+  "Parameters": {
+    "surface_name": "",
+    "atlas": "",
+    "scout_names": "",
+    "output_comment": "Atlas-based mask"
+  }
+}
+{
+  "Name": "process_nst_mbll",
+  "Parameters": {
+    "option_age": 25,
+    "option_pvf": 50,
+    "option_do_plp_corr": 1,
+    "option_dpf_method": 2,
+    "option_baseline_method": 1,
+    "timewindow": []
+  }
+}
+{
+  "Name": "process_nst_mbll_SSR",
+  "Parameters": {
+    "option_age": 25,
+    "option_pvf": 50,
+    "option_baseline_method": 1,
+    "option_do_plp_corr": 1,
+    "option_do_SuperficalRegression": 0,
+    "option_Superfical_Channel": ""
+  }
+}
+{
+  "Name": "process_nst_mbll_dOD",
+  "Parameters": {
+    "option_age": 25,
+    "option_pvf": 50,
+    "option_do_plp_corr": 1,
+    "option_dpf_method": 2
+  }
+}
+{
+  "Name": "process_nst_motion_correction",
+  "Parameters": {
+    "method": "spline",
+    "option_event_name": "",
+    "option_smoothing": 0.99,
+    "citation": [],
+    "citation_spline": [],
+    "citation_tddr": []
+  }
+}
+{
+  "Name": "process_nst_prefix_matrix",
+  "Parameters": {
+    "row_prefixes": "",
+    "col_prefixes": ""
+  }
+}
+{
+  "Name": "process_nst_remove_ssc",
+  "Parameters": {
+    "SS_chan": "name",
+    "SS_chan_name": "",
+    "separation_threshold_cm": 1.5
+  }
+}
+{
+  "Name": "process_nst_save_matrix_csv",
+  "Parameters": {
+    "csv_file": [
+      "",
+      ""
+    ],
+    "ignore_cols_all_zeros": 0,
+    "ignore_rows_all_zeros": 0
+  }
+}
+{
+  "Name": "process_nst_sci",
+  "Parameters": {
+    "option_low_cutoff": 0.5,
+    "option_high_cutoff": 2.5
+  }
+}
+{
+  "Name": "process_nst_separations",
+  "Parameters": {}
+}
+{
+  "Name": "process_nst_spree",
+  "Parameters": {
+    "stim_events": "",
+    "trim_start": 0,
+    "nb_iterations": 2000,
+    "separator": [],
+    "output_cmt": [],
+    "save_evoked_response": 1,
+    "save_effect": 0,
+    "save_ppm": 0,
+    "save_fit": 0,
+    "save_full_fitted_model": 0,
+    "output_fig_dir": ""
+  }
+}
+{
+  "Name": "process_nst_sub_headmodel",
+  "Parameters": {}
+}
+{
+  "Name": "process_nst_surfacedepth",
+  "Parameters": {
+    "subjectname": ""
+  }
+}
+{
+  "Name": "process_nst_wmne",
+  "Parameters": {
+    "thresh_dis2cortex": 3,
+    "depth_weightingMNE": 0.5,
+    "TimeSegment": [],
+    "NoiseCov_recompute": 1,
+    "TimeSegmentNoise": [],
+    "store_sparse_results": 0
   }
 }
 {
@@ -1024,6 +3049,34 @@ Here is the json template for every processes.
     "label_out": [],
     "avgoutput": 0,
     "savemax": 0
+  }
+}
+{
+  "Name": "process_pac_analysis",
+  "Parameters": {
+    "label": [],
+    "analyze_type": 1,
+    "usePhase": 0
+  }
+}
+{
+  "Name": "process_pac_average",
+  "Parameters": {
+    "label": [],
+    "analyze_type": 1,
+    "usePhase": 0
+  }
+}
+{
+  "Name": "process_pac_comod",
+  "Parameters": {
+    "timewindow": [],
+    "windowChunck": 0,
+    "label": [],
+    "analyze_type": 1,
+    "label2": [],
+    "output_type": 1,
+    "doInterp": 1
   }
 }
 {
@@ -1081,6 +3134,19 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_pac_fp_map",
+  "Parameters": {
+    "fawindow": [
+      0,
+      0
+    ],
+    "label1": [],
+    "label": [],
+    "analyze_type": 1,
+    "doInterp": 1
+  }
+}
+{
   "Name": "process_pac_ir_dynamic",
   "Parameters": {
     "timewindow": [],
@@ -1116,6 +3182,163 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_pac_simulate",
+  "Parameters": {
+    "subjectname": "NewSubject",
+    "condition": "",
+    "duration": 6,
+    "srate": 1000,
+    "nesting": 6,
+    "nested": 75,
+    "pacstr": 1,
+    "coupling": 90,
+    "cycle": 0.5,
+    "snr": 6
+  }
+}
+{
+  "Name": "process_pac_sur_zscore",
+  "Parameters": {
+    "label": [],
+    "usePhase": 0
+  }
+}
+{
+  "Name": "process_pls",
+  "Parameters": {
+    "label1": 3,
+    "label2": 3,
+    "label3": 500,
+    "label4": 500,
+    "sensortypes": "MEG"
+  }
+}
+{
+  "Name": "process_pls2",
+  "Parameters": {
+    "label1": "",
+    "label2": "",
+    "label3": 500,
+    "label4": 500,
+    "sensortypes": "MEG"
+  }
+}
+{
+  "Name": "process_plv1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "label1": [],
+    "plvmethod": "plv",
+    "plvmeasure": 2,
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_plv1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "label1": [],
+    "plvmethod": "plv",
+    "plvmeasure": 2,
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_plv2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "label1": [],
+    "plvmethod": "plv",
+    "plvmeasure": 2,
+    "tfmeasure": "hilbert",
+    "tfedit": [],
+    "timeres": "full",
+    "avgwinlength": 1,
+    "avgwinoverlap": 50,
+    "outputmode": "input"
+  }
+}
+{
+  "Name": "process_project_sources",
+  "Parameters": {
+    "label": [],
+    "headmodeltype": "surface"
+  }
+}
+{
   "Name": "process_psd",
   "Parameters": {
     "timewindow": [],
@@ -1128,6 +3351,75 @@ Here is the json template for every processes.
     "win_std": 0,
     "sep": [],
     "edit": []
+  }
+}
+{
+  "Name": "process_psd_features",
+  "Parameters": {
+    "timewindow": [],
+    "win_length": 1,
+    "win_overlap": 50,
+    "units": "physical",
+    "clusters": [],
+    "scoutfunc": 1,
+    "sensortypes": "MEG, EEG",
+    "mean": 1,
+    "std": 1,
+    "cv": 1,
+    "relative": 0,
+    "sep": [],
+    "edit": []
+  }
+}
+{
+  "Name": "process_psth_per_channel",
+  "Parameters": {
+    "binsize": 0.05
+  }
+}
+{
+  "Name": "process_psth_per_neuron",
+  "Parameters": {
+    "binsize": 0.05
+  }
+}
+{
+  "Name": "process_pte1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "freqbands": [],
+    "normalized": 1,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_rasterplot_per_neuron",
+  "Parameters": {}
+}
+{
+  "Name": "process_remove_evoked",
+  "Parameters": {
+    "sensortypes": "MEG, EEG",
+    "overwrite": 0
   }
 }
 {
@@ -1154,10 +3446,125 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_segment_brainsuite",
+  "Parameters": {
+    "doc": [],
+    "subjectname": "",
+    "nvertices": 15000
+  }
+}
+{
+  "Name": "process_segment_cat12",
+  "Parameters": {
+    "subjectname": "",
+    "nvertices": 15000,
+    "tpmnii": [
+      "",
+      "Nifti1"
+    ],
+    "sphreg": 1,
+    "vol": 1,
+    "extramaps": 0,
+    "cerebellum": 0
+  }
+}
+{
+  "Name": "process_segment_fastsurfer",
+  "Parameters": {
+    "install": [],
+    "optdoc": [],
+    "param": "--batch 4 --surfreg --parallel --threads 4",
+    "subjectname": "",
+    "outdir": [
+      "",
+      ""
+    ],
+    "defdir": [],
+    "nvertices": 15000
+  }
+}
+{
+  "Name": "process_segment_freesurfer",
+  "Parameters": {
+    "doc": [],
+    "subjectname": "",
+    "nvertices": 15000,
+    "param": "",
+    "delete": 0,
+    "async": 0
+  }
+}
+{
+  "Name": "process_segment_fsl",
+  "Parameters": {
+    "subjectname": "",
+    "nVertices": 10000,
+    "erodeFactor": 0,
+    "fillFactor": 2
+  }
+}
+{
+  "Name": "process_select_files_data",
+  "Parameters": {
+    "subjectname": "All",
+    "condition": "",
+    "tag": "",
+    "includebad": 0,
+    "includeintra": 0,
+    "includecommon": 0,
+    "outprocesstab": "no"
+  }
+}
+{
+  "Name": "process_select_files_matrix",
+  "Parameters": {
+    "subjectname": "All",
+    "condition": "",
+    "tag": "",
+    "includebad": 0,
+    "includeintra": 0,
+    "includecommon": 0,
+    "outprocesstab": "no"
+  }
+}
+{
+  "Name": "process_select_files_results",
+  "Parameters": {
+    "subjectname": "All",
+    "condition": "",
+    "tag": "",
+    "includebad": 0,
+    "includeintra": 0,
+    "includecommon": 0,
+    "outprocesstab": "no"
+  }
+}
+{
+  "Name": "process_select_files_timefreq",
+  "Parameters": {
+    "subjectname": "All",
+    "condition": "",
+    "tag": "",
+    "includebad": 0,
+    "includeintra": 0,
+    "includecommon": 0,
+    "outprocesstab": "no"
+  }
+}
+{
   "Name": "process_select_search",
   "Parameters": {
     "search": "",
-    "includebad": 1
+    "includebad": 1,
+    "outprocesstab": "no"
+  }
+}
+{
+  "Name": "process_select_subset",
+  "Parameters": {
+    "nfiles": 1,
+    "label1": [],
+    "method": 1
   }
 }
 {
@@ -1171,11 +3578,181 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_select_uniform",
+  "Parameters": {
+    "label1": [],
+    "group": 2,
+    "label2": [],
+    "label3": [],
+    "nfiles": 0,
+    "label4": [],
+    "method": 4
+  }
+}
+{
+  "Name": "process_select_uniform2",
+  "Parameters": {
+    "label1": [],
+    "label2": [],
+    "nfiles": 0,
+    "label3": [],
+    "method": 4
+  }
+}
+{
   "Name": "process_set_comment",
   "Parameters": {
     "tag": "",
     "isindex": 1,
     "label_warning": []
+  }
+}
+{
+  "Name": "process_simulate_ar",
+  "Parameters": {
+    "subjectname": "Test",
+    "condition": "Simulation",
+    "samples": 12000,
+    "srate": 1200,
+    "A": "A1 = [.8 0 .4 0; 0 .9 0 0; 0 .5 .5 0; 0 0 0 .2];\nA2 = [-.5 .2 0 0; 0 -.8 0 0; 0 0 -.2 0; 0 0 0 -.4];\nA = [A1, A2];",
+    "b": "b = [.01 .08 -.02 .05];",
+    "C": "C = eye(4,4);",
+    "display": []
+  }
+}
+{
+  "Name": "process_simulate_ar_spectra",
+  "Parameters": {
+    "subjectname": "Test",
+    "condition": "Simulation",
+    "samples": 12000,
+    "srate": 1200,
+    "interactions": "1, 1 / 10, 25 / 0.0, 1.0\n2, 2 / 10, 25 / 1.0, 0.0\n3, 3 / 10, 25 / 1.0, 0.2\n1, 3 / 10, 25 / 0.0, 0.6",
+    "display": [],
+    "coeff": []
+  }
+}
+{
+  "Name": "process_simulate_dipoles",
+  "Parameters": {
+    "label1": [],
+    "dipoles": "-48, -2, -4, 1, 0, -1\n48, -2, -4, 1, 0, -1",
+    "cs": "mni",
+    "label2": [],
+    "meg": "os_meg",
+    "eeg": "openmeeg",
+    "ecog": "",
+    "seeg": "",
+    "openmeeg": {
+      "BemFiles": [],
+      "BemNames": [
+        "Scalp",
+        "Skull",
+        "Brain"
+      ],
+      "BemCond": [
+        1,
+        0.0125,
+        1
+      ],
+      "BemSelect": [
+        1,
+        1,
+        1
+      ],
+      "isAdjoint": 0,
+      "isAdaptative": 1,
+      "isSplit": 0,
+      "SplitLength": 4000
+    },
+    "duneuro": {
+      "FemCond": [],
+      "FemSelect": [],
+      "UseTensor": false,
+      "Isotropic": true,
+      "SrcShrink": 0,
+      "SrcForceInGM": false,
+      "FemType": "fitted",
+      "SolverType": "cg",
+      "GeometryAdapted": false,
+      "Tolerance": 1E-8,
+      "ElecType": "normal",
+      "MegIntorderadd": 0,
+      "MegType": "physical",
+      "SolvSolverType": "cg",
+      "SolvPrecond": "amg",
+      "SolvSmootherType": "ssor",
+      "SolvIntorderadd": 0,
+      "DgSmootherType": "ssor",
+      "DgScheme": "sipg",
+      "DgPenalty": 20,
+      "DgEdgeNormType": "houston",
+      "DgWeights": true,
+      "DgReduction": true,
+      "SolPostProcess": true,
+      "SolSubstractMean": false,
+      "SolSolverReduction": 1E-10,
+      "SrcModel": "venant",
+      "SrcIntorderadd": 0,
+      "SrcIntorderadd_lb": 2,
+      "SrcNbMoments": 3,
+      "SrcRefLen": 20,
+      "SrcWeightExp": 1,
+      "SrcRelaxFactor": 6,
+      "SrcMixedMoments": true,
+      "SrcRestrict": true,
+      "SrcInit": "closest_vertex",
+      "BstSaveTransfer": false,
+      "BstEegTransferFile": "eeg_transfer.dat",
+      "BstMegTransferFile": "meg_transfer.dat",
+      "BstEegLfFile": "eeg_lf.dat",
+      "BstMegLfFile": "meg_lf.dat",
+      "UseIntegrationPoint": 1,
+      "EnableCacheMemory": 0,
+      "MegPerBlockOfSensor": 0
+    },
+    "label3": [],
+    "isnoise": 0,
+    "noise1": 0,
+    "noise2": 0,
+    "savedip": 1,
+    "savedata": 1
+  }
+}
+{
+  "Name": "process_simulate_matrix",
+  "Parameters": {
+    "subjectname": "Test",
+    "condition": "Simulation",
+    "samples": 10000,
+    "srate": 1000,
+    "matlab": "Data(1,:) = sin(2*pi*t);\nData(2,:) = cos(pi*t) + 1;"
+  }
+}
+{
+  "Name": "process_simulate_recordings",
+  "Parameters": {
+    "label1": [],
+    "label2": [],
+    "scouts": [],
+    "units": "pam",
+    "isnoise": 0,
+    "noise1": 0,
+    "noise2": 0,
+    "savesources": 1,
+    "savedata": 1,
+    "headmodel": []
+  }
+}
+{
+  "Name": "process_simulate_sources",
+  "Parameters": {
+    "label1": [],
+    "label2": [],
+    "scouts": [],
+    "units": "pam",
+    "isnoise": 0,
+    "noise1": 0
   }
 }
 {
@@ -1209,6 +3786,158 @@ Here is the json template for every processes.
       0
     ],
     "Comment": ""
+  }
+}
+{
+  "Name": "process_source_atlas",
+  "Parameters": {
+    "warning": [],
+    "atlas": [],
+    "isnorm": 0
+  }
+}
+{
+  "Name": "process_source_dspmscale",
+  "Parameters": {
+    "label1": []
+  }
+}
+{
+  "Name": "process_source_flat",
+  "Parameters": {
+    "label1": [],
+    "method": "norm",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    }
+  }
+}
+{
+  "Name": "process_spgranger1",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "dirlabel": [],
+    "direction": 3,
+    "grangerorder": 10,
+    "maxfreqres": 2,
+    "maxfreq": 100,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_spgranger1n",
+  "Parameters": {
+    "timewindow": [],
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "removeevoked": 0,
+    "grangerorder": 10,
+    "maxfreqres": 2,
+    "maxfreq": 100,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_spgranger2",
+  "Parameters": {
+    "timewindow": [],
+    "src_channel": "name",
+    "src_rowname": "",
+    "src_scouts": [],
+    "dest_scouts": [],
+    "flatten": 0,
+    "scouttime": "after",
+    "scoutfunc": "mean",
+    "scoutfuncaft": "mean",
+    "pcaedit": {
+      "Method": "pca",
+      "Baseline": [
+        -0.1,
+        0
+      ],
+      "DataTimeWindow": [
+        0,
+        1
+      ],
+      "RemoveDcOffset": "file"
+    },
+    "dest_sensors": "MEG, EEG",
+    "includebad": 1,
+    "dest_rowname": "",
+    "removeevoked": 0,
+    "grangerorder": 10,
+    "maxfreqres": 2,
+    "maxfreq": 100,
+    "outputmode": 1
+  }
+}
+{
+  "Name": "process_spike_field_coherence",
+  "Parameters": {
+    "timewindow": [
+      -0.15,
+      0.15
+    ],
+    "sensortypes": "EEG, SEEG",
+    "parallel": 0
+  }
+}
+{
+  "Name": "process_spike_triggered_average",
+  "Parameters": {
+    "timewindow": [
+      -0.15,
+      0.15
+    ],
+    "parallel": 0
   }
 }
 {
@@ -1255,10 +3984,66 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_spiking_phase_locking",
+  "Parameters": {
+    "sensortypes": "EEG",
+    "bandpass": [
+      600,
+      800
+    ],
+    "phaseBin": 30
+  }
+}
+{
   "Name": "process_split_raw_file",
   "Parameters": {
     "eventname": "",
     "keepbadsegments": 0
+  }
+}
+{
+  "Name": "process_sprint",
+  "Parameters": {
+    "sensortypes": "MEG, EEG",
+    "timewindow": [],
+    "stft": [],
+    "win_length": 1,
+    "win_overlap": 50,
+    "loc_average": 5,
+    "clusters": [],
+    "scoutfunc": 1,
+    "fooof": [],
+    "freqrange": [],
+    "optimobj": "leastsquare",
+    "peakwidth": [],
+    "maxpeaks": 3,
+    "minpeakheight": 3,
+    "proxthresh": 2,
+    "apermode": "fixed",
+    "guessweight": "none",
+    "postproc": [],
+    "rmoutliers": "yes",
+    "maxfreq": 2.5,
+    "maxtime": 6,
+    "minnear": 3
+  }
+}
+{
+  "Name": "process_ssmooth",
+  "Parameters": {
+    "label1": [],
+    "fwhm": 10,
+    "label2": [],
+    "method": "geodesic_dist"
+  }
+}
+{
+  "Name": "process_ssmooth_surfstat",
+  "Parameters": {
+    "help": [],
+    "fwhm": 3,
+    "label": [],
+    "method": "before_2023"
   }
 }
 {
@@ -1353,12 +4138,238 @@ Here is the json template for every processes.
   }
 }
 {
+  "Name": "process_stdchan",
+  "Parameters": {
+    "warning": [],
+    "method": 1
+  }
+}
+{
+  "Name": "process_stdrow",
+  "Parameters": {
+    "method": 1,
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_stdtime",
+  "Parameters": {
+    "help": [],
+    "method": "spline",
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_stdtime2",
+  "Parameters": {
+    "help": [],
+    "method": "spline",
+    "overwrite": 0
+  }
+}
+{
   "Name": "process_swap_headcoils",
   "Parameters": {
     "Na": 0,
     "Le": 0,
     "Re": 0,
     "reverse": 0
+  }
+}
+{
+  "Name": "process_sync_recordings",
+  "Parameters": {
+    "inputs": [],
+    "src": "",
+    "method_title": [],
+    "method": "xcorr"
+  }
+}
+{
+  "Name": "process_test_baseline",
+  "Parameters": {
+    "extract_title": [],
+    "baseline": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "test_title": [],
+    "test_type": "ttest_baseline",
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_test_conjunction",
+  "Parameters": {
+    "label": []
+  }
+}
+{
+  "Name": "process_test_normative",
+  "Parameters": {
+    "islog": 1,
+    "devlevel": 0.05,
+    "isnormal": 0,
+    "shapiro": 1,
+    "freqout": "input",
+    "freqrange": [],
+    "freqbands": []
+  }
+}
+{
+  "Name": "process_test_parametric1",
+  "Parameters": {
+    "extract_title": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "Comment": "",
+    "test_title": [],
+    "test_type": "ttest_onesample",
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_test_parametric2",
+  "Parameters": {
+    "extract_title": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "iszerobad": 1,
+    "Comment": "",
+    "test_title": [],
+    "test_type": "ttest_equal",
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_test_parametric2p",
+  "Parameters": {
+    "extract_title": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "Comment": "",
+    "test_title": [],
+    "test_type": "ttest_paired",
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_test_permutation2",
+  "Parameters": {
+    "extract_title": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "iszerobad": 1,
+    "Comment": "",
+    "test_title": [],
+    "test_type": "ttest_equal",
+    "label2": [],
+    "randomizations": 1000,
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_test_permutation2p",
+  "Parameters": {
+    "extract_title": [],
+    "timewindow": [],
+    "sensortypes": "",
+    "freqrange": [],
+    "rows": "",
+    "scoutsel": [],
+    "scoutfunc": 1,
+    "isnorm": 0,
+    "isabs": 0,
+    "avgtime": 0,
+    "avgrow": 0,
+    "avgfreq": 0,
+    "matchrows": 1,
+    "iszerobad": 1,
+    "Comment": "",
+    "test_title": [],
+    "test_type": "ttest_paired",
+    "label2": [],
+    "randomizations": 1000,
+    "tail": "two"
+  }
+}
+{
+  "Name": "process_tf_bands",
+  "Parameters": {
+    "isfreqbands": 1,
+    "freqbands": [],
+    "istimebands": 0,
+    "timebands": [],
+    "overwrite": 0
+  }
+}
+{
+  "Name": "process_tf_instfreq",
+  "Parameters": {
+    "ifmethod": 1,
+    "augerl": 2
+  }
+}
+{
+  "Name": "process_tf_measure",
+  "Parameters": {
+    "measure": 1
+  }
+}
+{
+  "Name": "process_tf_norm",
+  "Parameters": {
+    "normalize": "multiply2020",
+    "warning": []
   }
 }
 {
@@ -1372,6 +4383,25 @@ Here is the json template for every processes.
     "dim1": 1,
     "dim2": 1,
     "dim3": 0
+  }
+}
+{
+  "Name": "process_timefreq",
+  "Parameters": {
+    "sensortypes": "MEG, EEG",
+    "clusters": [],
+    "scoutfunc": 1,
+    "edit": [],
+    "normalize2020": 0,
+    "normalize": "none"
+  }
+}
+{
+  "Name": "process_timeoffset",
+  "Parameters": {
+    "info": [],
+    "offset": 0,
+    "overwrite": 0
   }
 }
 {
@@ -1397,6 +4427,12 @@ Here is the json template for every processes.
   "Parameters": {
     "usedefault": 2,
     "tolerance": 2
+  }
+}
+{
+  "Name": "process_wdiff_ab",
+  "Parameters": {
+    "ttest_label": []
   }
 }
 ```
